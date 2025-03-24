@@ -4,6 +4,7 @@ import { RxTriangleRight } from "react-icons/rx";
 import { imageLink } from '../../constants/imageLink';
 import { motion } from "framer-motion";
 import { FaBasketballBall, FaHiking, FaUtensils, FaPlane } from "react-icons/fa";
+import { SectionTitle } from '../where_have_worked/WhereHaveWorked';
 
 const hobbies = [
   { name: "Playing Basketball", icon: FaBasketballBall },
@@ -90,19 +91,22 @@ const Bio = () => {
         )            
     }   
     return (
-        <Flex justifyContent='space-between' paddingInline={'90px'} height={'700px'} pr='200px' backgroundColor={'#021e020f'}>
-            <Box w="40%">
+        <Flex justifyContent='space-between' width={'100%'} flexDir={{base:'column-reverse',sm:'column-reverse',md:'column-reverse', lg:'row'}} paddingInline={{base:'1rem', lg:'90px'}} minH={'700px'} pr={{base:'1rem', lg:'200px'}} gap={'2rem'} backgroundColor={'#021e020f'}>
+            <Box w={{base:'100%',sm:'100%',md:'100%', lg:'40%'}}>
                 <BioComponent />            
             </Box>
-            <Box w="60%" position={'relative'} overflowY={'hidden'}>
-            <Image src={imageLink.il1_P} maxWidth={'80%'} alt="illustartion image 1" />
-            <Image src={imageLink.blob2} maxWidth={'80%'} alt="blob shape image 1" position='absolute' top='630px' right={'130px'} />
-            </Box>
+            <Flex w={{base:'100%',sm:'100%',md:'100%', lg:'50%'}} paddingTop={'6rem'}>
+                <Box width={'400px'} height={'400px'} position={'relative'} border={'solid 4px brown'}>
+                    <Image src={imageLink.profilePics2}  width={'400px'} height={'400px'} left={'-30px'} alt="illustartion image 1" position={'absolute'} top='30px' />
+                {/* <Image src={imageLink.il1_P} maxWidth={'80%'} alt="illustartion image 1" /> */}
+                {/* <Image src={imageLink.blob2} maxWidth={'80%'} alt="blob shape image 1" position='absolute' top='630px' right={'130px'} /> */}
+                </Box>
+            </Flex>
         </Flex>
       )    
 }
 
-const SkillBars = ({skills}) => {
+export const SkillBars = ({skills}) => {
     return (
         <Flex justifyContent='space-between' paddingInline={'90px'} height={'700px'} pr='200px' backgroundColor={'#021e020f'}>
         <VStack spacing={4} width='90%' align="stretch">
@@ -137,10 +141,14 @@ const About = () => {
       ];
 
     return (
-        <>
-        <Interests />
-        {/* <SkillBars skills={skills} /> */}
-        </>
+        <Flex flexDir={'column'}>
+            <Flex justifyContent={'center'} width={'80%'}>
+                <SectionTitle titleContent={'About Me'} titleNo={'01'} />
+            </Flex>
+            <Bio />
+            {/* <Interests /> */}
+            {/* <SkillBars skills={skills} /> */}
+        </Flex>
     )
       
 }

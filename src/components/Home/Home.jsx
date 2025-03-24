@@ -14,7 +14,7 @@ const texts = [
 
 const HomeComponent = () => {
   return (
-    <Flex flexDir={'column'} height={'90vh'} position='relative'>
+    <Flex flexDir={'column'} minH={'90vh'} position='relative'>
         <Image src={imageLink.blob2} alt='' width='300px' position='absolute' top={'-75px'} right={'-105px'} opacity={0.4} zIndex={1} />
         <Flex flexDir={'column'} width={'40rem'} mt='5rem' zIndex={2} >
             <Flex flexDir={'column'} fontSize={'2rem'} fontWeight={'700'}>

@@ -3,36 +3,37 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
 import { imageLink } from "../../constants/imageLink";
+import { SectionTitle } from "../where_have_worked/WhereHaveWorked";
 
 const projects = [
   {
-    title: "Payment Control UI",
+    title: "Fraud management",
     image: imageLink.paymentControle,
-    description: "A secure payment control dashboard.",
+    description: "A secure multi -tenancy platform to detect and prevent fraud.",
     link: "#",
   },
   {
     title: "Supermart Express",
     image: imageLink.supermart,
-    description: "A Buy Now, Pay Later financial platform.",
+    description: "No 1, online groceries shop in Nigeria that offers same day delivery.",
     link: "#",
   },
   {
     title: "Payment As a Service",
     image: imageLink.paas,
-    description: "A robust system for managing users and roles.",
+    description: "A robust system that provide payment enablement service.",
     link: "#",
   },
   {
-    title: "User Management System",
+    title: "Profipoint Agency",
     image: imageLink.profiPoint,
-    description: "A robust system for managing users and roles.",
+    description: "A trusted agency that build websites for businesses.",
     link: "#",
   },
   {
-    title: "E-commerce Store",
+    title: "Payment Control UI",
     image: imageLink.switch1,
-    description: "A fully functional online shopping platform.",
+    description: "A fully functional online Payment management platform.",
     link: "#",
   },
 ];
@@ -110,7 +111,9 @@ export const ProjectGallery = () => {
 
 export const Gallery = () => {
     return (
-        <Flex flexWrap={'wrap'} paddingInline={'40px'} gap={'2rem'} width={'80%'} justifyContent={'center'}>
+        <Flex width={'80%'} flexDir={'column'}>
+            <SectionTitle titleContent={'Gallery'} titleNo={'03'} />
+            <Flex flexWrap={'wrap'} paddingInline={'40px'} gap={'2rem'} justifyContent={'center'}>
             {
                 projects.map((project, index) => {
                     return (
@@ -144,6 +147,7 @@ export const Gallery = () => {
                     )
                 })
             }
+        </Flex>
         </Flex>
     )
 }

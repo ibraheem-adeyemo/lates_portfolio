@@ -839,7 +839,7 @@ export default function CallToActionWithIllustration() {
           lineHeight={'110%'}>
           From Concept to Code –{' '} <br />
           <Text as={'span'} color={'orange.400'}>
-          Let's Bring Your Idea to Life.
+          Let's Bring Your Project to Life.
           </Text>
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>

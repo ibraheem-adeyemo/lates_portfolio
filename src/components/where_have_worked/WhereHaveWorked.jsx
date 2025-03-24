@@ -1,4 +1,4 @@
-import { Flex, Text, Box } from '@chakra-ui/react';
+import { Flex, Text, Box, Heading } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { RxTriangleRight } from "react-icons/rx";
 import { useSelector } from 'react-redux';
@@ -8,6 +8,14 @@ const MotionFlex = motion(Flex);
 const MotionText = motion(Text);
 const MotionBox = motion(Box);
 
+export const SectionTitle = ({ titleContent, titleNo }) => {
+    return (
+        <Flex color='orange.400' width='fit-content' my='3rem' alignSelf={'center'}>
+                <Heading mr='2rem' size={{base:'md', sm:'md', lg:'md'}} color={'gray.500'}>{titleNo}</Heading>
+                <Heading size={{base:'md', sm:'md', lg:'md'}}>{titleContent} </Heading>
+            </Flex>
+    )
+}
 const WorkExperience = ({ experience }) => {
     const { companyName, position, startDate, endDate = 'present', deliverables = [] } = experience;
 
@@ -63,19 +71,21 @@ const WhereHaveWorked = () => {
     }, [data, indx]);
 
     return (
-        <Flex justifyContent={'center'} gap={'2rem'} height={'30rem'} width={'80%'}>
-            <Flex flexDir={'column'} width={'15rem'} borderLeft={'1px solid'} borderLeftColor={'brand.primaryBg'} justifyContent={'space-between'} height={'18rem'}>
+        <Flex flexDir='Column' width={{base:'100%', md:'100%', lg:'80%'}}>
+            <SectionTitle titleContent={'Where have worked'} titleNo={'02'} />
+            <Flex gap={'2rem'} justifyContent={'center'} height={'30rem'} flexDir={{base:'column', md:'column', lg:'row'}}>
+            <Flex flexDir={{base:'row', md:'row', lg:'column'}} overflowX={{base:'scroll', md:'scroll',lg:'hidden'}} width={{base:'100%',md:'100%',lg:'15rem'}} borderLeft={'1px solid'} borderLeftColor={'brand.primaryBg'} justifyContent={'space-between'}>
                 {companies?.map((company, i) => (
                     <MotionBox
                         key={i}
-                        backgroundColor={i === indx ? 'brand.primaryBg' : ''}
+                        backgroundColor={i === indx ? 'orange.500' : ''}
                         color={i === indx ? 'white' : 'black'}
                         padding={'10px'}
                         whileHover={{ scale: 1.05 }}
                         onClick={() => setIndex(i)}
                         cursor={'pointer'}
                     >
-                        <Text fontWeight={600} fontSize={'18px'}>{company}</Text>
+                        <Text fontWeight={600} fontSize={'18px'} width={{base:'10rem',md:'11rem',lg:'15rem'}}>{company}</Text>
                     </MotionBox>
                 ))}
             </Flex>
@@ -84,6 +94,7 @@ const WhereHaveWorked = () => {
                     {currExperience && <WorkExperience experience={currExperience} key={indx} />}
                 </AnimatePresence>
             </Flex>
+        </Flex>
         </Flex>
     );
 };

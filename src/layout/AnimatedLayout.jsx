@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import Layout from '../layout/Layout'
+import Layout from './Layout'
 import HomeComponent from '../components/Home/Home'
 import WhereHaveWorked from '../components/where_have_worked/WhereHaveWorked'
 import { useDispatch } from 'react-redux'
@@ -20,7 +20,7 @@ const sectionVariants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 }
 
-export const AnimatedSection = ({ children, delay }) => {
+const AnimatedSection = ({ children, delay }) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: '-100px 0px' }) // Trigger when section is in view
   
@@ -38,7 +38,7 @@ export const AnimatedSection = ({ children, delay }) => {
     )
   }
 
-const Home = () => {
+export const AnimatedLayout = ({children}) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -47,30 +47,8 @@ const Home = () => {
 
   return (
     <Layout>
-      <AnimatedSection>
-        <HomeComponent />
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <About />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <WhereHaveWorked />
-      </AnimatedSection>
-
-      <AnimatedSection>
-       <Gallery />
-      </AnimatedSection>
-      <AnimatedSection>
-        <CallToActionWithIllustration />
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <ContactFormWithSocialButtons />
-      </AnimatedSection>
+      {children}
     </Layout>
   )
 }
 
-export default Home

@@ -1,5 +1,6 @@
 export const imageLink = {
     profilePics: '/images/profile-pic.png',
+    profilePics2: '/images/profile-pic2.png',
     blob: '/images/blob.png',
     blob1: '/images/blob1.png',
     blob2: '/images/blob2.png',
