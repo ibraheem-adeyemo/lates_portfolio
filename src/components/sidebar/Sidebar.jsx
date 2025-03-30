@@ -1,5 +1,5 @@
 import { Box, Flex, Link, Image, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { RiTwitterXLine, RiFacebookCircleFill, RiLinkedinBoxFill, RiInstagramLine } from "react-icons/ri";
 import { BsGithub } from "react-icons/bs";
 import { Link as DomLink } from 'react-router-dom';
@@ -9,23 +9,50 @@ import { PiUsers, PiFoldersBold, PiNotepadBold } from "react-icons/pi";
 import { RiUserSettingsLine } from "react-icons/ri";
 import { motion } from 'framer-motion';
 
-const Sidebar = ({ firstName, lastName }) => {
-    const sideBarOptions = [
-        { name: 'Home', icon: RxDashboard, href: '#home' },
-        { name: 'About', icon: PiUsers, href: '#about' },
-        { name: 'Resume', icon: RiUserSettingsLine, href: '#resume' },
-        { name: 'Portfolio', icon: PiUsers, href: '#portfolio' },
-        { name: 'Services', icon: PiFoldersBold, href: '#services' },
-        { name: 'Contact', icon: PiNotepadBold, href: '#contact' }
-    ];
+const sideBarOptions = [
+    { name: 'Home', icon: RxDashboard, href: '#home' },
+    { name: 'About', icon: PiUsers, href: '#about' },
+    { name: 'Resume', icon: RiUserSettingsLine, href: '#resume' },
+    { name: 'Portfolio', icon: PiUsers, href: '#portfolio' },
+    { name: 'Services', icon: PiFoldersBold, href: '#services' },
+    { name: 'Contact', icon: PiNotepadBold, href: '#contact' }
+];
 
-    const socialMediaHandles = [
-        { name: 'X', link: 'http://x.com', icon: RiTwitterXLine },
-        { name: 'Facebook', link: 'http://facebook.com', icon: RiFacebookCircleFill },
-        { name: 'Instagram', link: 'http://instagram.com', icon: RiInstagramLine },
-        { name: 'LinkedIn', link: 'http://linkedin.com', icon: RiLinkedinBoxFill },
-        { name: 'Github', link: 'http://github.com', icon: BsGithub }
-    ];
+const socialMediaHandles = [
+    { name: 'X', link: 'http://x.com', icon: RiTwitterXLine },
+    { name: 'Facebook', link: 'http://facebook.com', icon: RiFacebookCircleFill },
+    { name: 'Instagram', link: 'http://instagram.com', icon: RiInstagramLine },
+    { name: 'LinkedIn', link: 'http://linkedin.com', icon: RiLinkedinBoxFill },
+    { name: 'Github', link: 'http://github.com', icon: BsGithub }
+];
+
+const Sidebar = ({ firstName, lastName }) => {
+    const sections = ['home', 'about', 'experience', 'gallery','contact']
+    const [activeSection, setActiveSection] = useState("home");
+
+    useEffect(() => {
+      const handleScroll = () => {
+        let scrollPosition = window.scrollY;
+
+        sideBarOptions.forEach((section) => {
+            const sectionElement = document.getElementById(section);
+            if (sectionElement && sectionElement.offsetTop <= scrollPosition + 50) {
+                setActiveSection(section);
+            }
+        });
+
+        window.addEventListener("scroll", handleScroll)
+      }
+    
+      return () => {
+        window.removeEventListener("scroll", handleScroll)
+      }
+    }, [])
+
+    const scrollToSection = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      };
+    
 
     return (
         <motion.div 
@@ -69,9 +96,10 @@ const Sidebar = ({ firstName, lastName }) => {
                                 <motion.div 
                                     whileHover={{ scale: 1.1 }} 
                                     key={index} 
+                                    style={{display:'flex'}}
                                     transition={{ type: 'spring', stiffness: 300 }}
                                 >
-                                    <Link as={DomLink} to={option.href}
+                                    <Link onClick={()=>scrollToSection(option.name)}
                                         _hover={{ backgroundColor: 'brand.quinary', color: 'white' }}
                                         color='white' rel='noopener noreferrer' 
                                         px={'10px'} py={'12px'} borderRadius='10px'

@@ -26,7 +26,7 @@ export const dummy = {
             startDate: 'March 2020', 
             endDate: 'December 2021',
             deliverables: [
-                'Write clean, maintainable code, and conduct code reviews to ensure adherence to best practices and coding standards.','Built an Inventory Management System, and improved on the product listing model by creating a Product Variants Management System. This feature automated and simplified inventory records taking, for the admins.','Built a customizable Webview platform for franchises, and collaborated with mobile developers to Build a mobile application targeted to increase the number of daily orders.','Built global state management in react native with redux and redux-thunk for asynchronous requests. I implemented routing with react-navigation and created both drawer and tab navigation. Also implemented Jest for testing.'
+                'Write clean, maintainable code, and conduct code reviews to ensure adherence to best practices and coding standards.','Built an Inventory Management System, and improved on the product listing model by creating a Product Variants Management System. This feature automated and simplified inventory records taking, for the admins.','Built a customizable Webview platform for franchises, and collaborated with mobile developers to Build a mobile application targeted to increase the number of daily orders.','Built global state management in react native with redux and redux-thunk for asynchronous requests.','I implemented routing with react-navigation and created both drawer and tab navigation. Also implemented Jest for testing.'
             ],
             technologies: ['Angular', 'React', 'Docker', 'Gitlab', 'AWS']
         },
@@ -36,7 +36,7 @@ export const dummy = {
             startDate: 'Semptember 2019', 
             endDate: 'March 2020',
             deliverables: [
-                'Wrote modern, performant, maintainable code for a diverse array of client and internal projects.','Built an admin dashboard, integrated with the API and populated with dynamic data.','Built vendors/admin-managed delivery applications. Functionalities include CRUD actions, creating a vendor’s account, approval of a new vendor, banning a vendor, and managing stores and products.','Designed mockups and converts, converted UI/UX designs into responsive web pages.',''
+                'Wrote modern, performant, maintainable code for a diverse array of client and internal projects.','Built an admin dashboard, integrated with the API and populated with dynamic data.','Built vendors/admin-managed delivery applications. Functionalities include CRUD actions, creating a vendor’s account, approval of a new vendor, banning a vendor, and managing stores and products.','Designed mockups and converts, converted UI/UX designs into responsive web pages.'
             ],
             technologies: ['Node.js', 'Express.js', 'React.js', 'Redux', 'Angular', 'Docker',  'Github']
         },

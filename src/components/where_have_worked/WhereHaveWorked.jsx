@@ -56,47 +56,60 @@ const WorkExperience = ({ experience }) => {
 
 const WhereHaveWorked = () => {
     const [indx, setIndex] = useState(0);
-    const { data } = useSelector(state => state.storeReducer);
-    const [companies, setCompanies] = useState([]);
-    const [currExperience, setCurrExperience] = useState(data[indx]);
+  const { data } = useSelector((state) => state.storeReducer);
+  const currExperience = data[indx];
 
-    useEffect(() => {
-        if (data?.length > 0) {
-            setCompanies(data.map(company => company.companyName));
-        }
-    }, [data]);
+  // Scrollable Companies List Component
+  const CompaniesList = ({ layout }) => (
+    <Flex
+      flexDir={layout === "column" ? "column" : "row"}
+      overflow={layout === "row" ? "scroll" : "unset"}
+      width={layout === "row" ? "100%" : { base: "100%", lg: "15rem" }}
+      borderLeft={layout === "column" ? "1px solid" : "none"}
+      borderTop={layout === "row" ? "1px solid" : "none"}
+      borderColor="gray.300"
+      justifyContent="space-between"
+      height="25rem"
+    >
+      {data.map((company, i) => (
+        <MotionBox
+          key={i}
+          padding="10px"
+          cursor="pointer"
+          onClick={() => setIndex(i)}
+          color={i === indx ? "orange.500" : "black"}
+          borderLeft={layout === "column" && i === indx ? "3px solid orange.500" : "none"}
+          borderTop={layout === "row" && i === indx ? "3px solid orange.500" : "none"}
+        >
+          <Text fontWeight={600} fontSize="18px" width={{ base: "10rem", lg: "15rem" }}>
+            {company.companyName}
+          </Text>
+        </MotionBox>
+      ))}
+    </Flex>
+  );
 
-    useEffect(() => {
-        setCurrExperience(data[indx]);
-    }, [data, indx]);
-
-    return (
-        <Flex flexDir='Column' width={{base:'100%', md:'100%', lg:'80%'}}>
-            <SectionTitle titleContent={'Where have worked'} titleNo={'02'} />
-            <Flex gap={'2rem'} justifyContent={'center'} height={'30rem'} flexDir={{base:'column', md:'column', lg:'row'}}>
-            <Flex flexDir={{base:'row', md:'row', lg:'column'}} overflowX={{base:'scroll', md:'scroll',lg:'hidden'}} width={{base:'100%',md:'100%',lg:'15rem'}} borderLeft={'1px solid'} borderLeftColor={'brand.primaryBg'} justifyContent={'space-between'}>
-                {companies?.map((company, i) => (
-                    <MotionBox
-                        key={i}
-                        backgroundColor={i === indx ? 'orange.500' : ''}
-                        color={i === indx ? 'white' : 'black'}
-                        padding={'10px'}
-                        whileHover={{ scale: 1.05 }}
-                        onClick={() => setIndex(i)}
-                        cursor={'pointer'}
-                    >
-                        <Text fontWeight={600} fontSize={'18px'} width={{base:'10rem',md:'11rem',lg:'15rem'}}>{company}</Text>
-                    </MotionBox>
-                ))}
-            </Flex>
-            <Flex width='35rem'>
-                <AnimatePresence>
-                    {currExperience && <WorkExperience experience={currExperience} key={indx} />}
-                </AnimatePresence>
-            </Flex>
+  return (
+    <Flex flexDir="column" width={{ base: "100%", lg: "80%" }}>
+      <SectionTitle titleContent="Where have worked" titleNo="02" />
+      <Flex gap="2rem" justifyContent="center" height="30rem" flexDir={{ base: "column", lg: "row" }}>
+        {/* Mobile: Horizontal List */}
+        <Flex display={{ base: "flex", lg: "none" }}>
+          <CompaniesList layout="row" />
         </Flex>
+
+        {/* Desktop: Vertical List */}
+        <Flex display={{ base: "none", lg: "flex" }}>
+          <CompaniesList layout="column" />
         </Flex>
-    );
+
+        {/* Work Experience Section */}
+        <Flex width="35rem">
+          <AnimatePresence>{currExperience && <WorkExperience experience={currExperience} key={indx} />}</AnimatePresence>
+        </Flex>
+      </Flex>
+    </Flex>
+  );
 };
 
 export default WhereHaveWorked;

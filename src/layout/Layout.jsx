@@ -19,10 +19,10 @@ const contentVariants = {
 
 const Layout = ({ children }) => {
   return (
-    <Flex bgColor={{base:'gold',sm:'yellow',md:'blue.100',lg:'green', xl:'red.100', '2xl':'pink.100'}}>
+    <Flex>
       {/* Animated Sidebar */}
       <motion.div initial="hidden" animate="visible" variants={sidebarVariants}>
-        <Box width={'20rem'} bgColor="brand.primaryBg" display={{base:'none',sm:'none', md:'none', lg:'none'}} position={'fixed'}>
+        <Box width={'20rem'} bgColor="brand.primaryBg" display={{base:'none',sm:'none', md:'none', lg:'flex'}} position={'fixed'}>
           <Sidebar />
         </Box>
       </motion.div>

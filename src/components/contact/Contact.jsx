@@ -151,15 +151,16 @@ export default function ContactFormWithSocialButtons() {
   }
   return (
     <Flex
+      id={'Contact'}
       bg={useColorModeValue('gray.100', 'gray.900')}
       align="center"
       justify="center"
-      width={'80%'}
+      width={{base:'100%', md:'100%', lg:'80%'}}
       css={{
         backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
         backgroundAttachment: 'fixed',
       }}
-      id="contact">
+      >
       <Box borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}>
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
@@ -251,7 +252,7 @@ export default function ContactFormWithSocialButtons() {
                 <VStack spacing={5}>
                     {/* https://formsubmit.co/aderemiibrahim11@gmail.com */}
                 {/* <form> */}
-                  <Flex gap={'1rem'}>
+                  {/* <Flex gap={'1rem'} flexDir={{base:'column', md:'column',lg:'row'}} > */}
                   <FormControl isRequired>
                     <FormLabel>First Name</FormLabel>
 
@@ -272,9 +273,9 @@ export default function ContactFormWithSocialButtons() {
                       <Input type="text" name="last_name" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
                     </InputGroup>
                   </FormControl>
-                  </Flex>
+                  {/* </Flex> */}
 
-                  <Flex gap={'1rem'}>
+                  <Flex gap={'1rem'} flexDir={{base:'column', md:'column',lg:'row'}}>
                   <FormControl isRequired>
                     <FormLabel>Email</FormLabel>
 

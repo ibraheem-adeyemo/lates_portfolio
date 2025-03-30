@@ -5,6 +5,8 @@ import { imageLink } from '../../constants/imageLink';
 import { motion } from "framer-motion";
 import { FaBasketballBall, FaHiking, FaUtensils, FaPlane } from "react-icons/fa";
 import { SectionTitle } from '../where_have_worked/WhereHaveWorked';
+import { Document, Page, pdfjs } from "react-pdf";
+
 
 const hobbies = [
   { name: "Playing Basketball", icon: FaBasketballBall },
@@ -12,6 +14,11 @@ const hobbies = [
   { name: "Cooking", icon: FaUtensils },
   { name: "Traveling", icon: FaPlane },
 ];
+
+// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//     "pdfjs-dist/build/pdf.worker.min.js",
+//     import.meta.url
+//   ).toString();
 
 const MotionBox = motion(Box);
 
@@ -42,6 +49,17 @@ const Interests = () => {
     </Flex>
   );
 };
+
+const MyPDFViewer = () => {
+    return (
+        <Box height="600px">
+          <Document file="/IBRAHEEM_ADEYEMOfr_glo.pdf"
+          onLoadError={(error) => console.error("Failed to load PDF:", error)}>
+            <Page pageNumber={1} />
+          </Document>
+        </Box>
+      );
+  };
 
 const Bio = () => {
 
@@ -141,13 +159,14 @@ const About = () => {
       ];
 
     return (
-        <Flex flexDir={'column'}>
+        <Flex flexDir={'column'} id='About' width={{base:'100%', md:'100%', lg:'80%'}}>
             <Flex justifyContent={'center'} width={'80%'}>
                 <SectionTitle titleContent={'About Me'} titleNo={'01'} />
             </Flex>
             <Bio />
             {/* <Interests /> */}
             {/* <SkillBars skills={skills} /> */}
+            {/* <MyPDFViewer /> */}
         </Flex>
     )
       
