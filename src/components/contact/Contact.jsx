@@ -149,6 +149,7 @@ export default function ContactFormWithSocialButtons() {
     }
     
   }
+
   return (
     <Flex
       id={'Contact'}
@@ -198,7 +199,7 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Tooltip>
 
-                <Box as="a" href="#">
+                <Box as="a" href="https://github.com/ibraheem-adeyemo">
                   <IconButton
                     aria-label="github"
                     variant="ghost"
@@ -213,7 +214,7 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Box>
 
-                <Box as="a" href="#">
+                <Box as="a" href="https://twitter.com/ibraheemadeyemo">
                   <IconButton
                     aria-label="twitter"
                     variant="ghost"
@@ -227,7 +228,7 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Box>
 
-                <Box as="a" href="#">
+                <Box as="a" href="https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a">
                   <IconButton
                     aria-label="linkedin"
                     variant="ghost"

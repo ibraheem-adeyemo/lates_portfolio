@@ -113,7 +113,7 @@ const Bio = () => {
             <Box w={{base:'100%',sm:'100%',md:'100%', lg:'40%'}}>
                 <BioComponent />            
             </Box>
-            <Flex w={{base:'100%',sm:'100%',md:'100%', lg:'50%'}} paddingTop={'6rem'}>
+            <Flex w={{base:'100%',sm:'100%',md:'100%', lg:'50%'}} paddingTop={'6rem'} pl={{base:'50px',md:'50px',lg:'150px'}}>
                 <Box width={'400px'} height={'400px'} position={'relative'} border={'solid 4px brown'}>
                     <Image src={imageLink.profilePics2}  width={'400px'} height={'400px'} left={'-30px'} alt="illustartion image 1" position={'absolute'} top='30px' />
                 {/* <Image src={imageLink.il1_P} maxWidth={'80%'} alt="illustartion image 1" /> */}

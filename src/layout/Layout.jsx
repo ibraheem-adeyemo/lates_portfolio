@@ -4,6 +4,7 @@ import Sidebar from '../components/sidebar/Sidebar'
 import { imageLink } from '../constants/imageLink'
 import { motion } from 'framer-motion'
 import Footer from '../components/footer/Footer'
+import WithSubnavigation from '../components/nav-bar/NavBar'
 
 // Sidebar animation (slide in from left)
 const sidebarVariants = {
@@ -29,6 +30,9 @@ const Layout = ({ children }) => {
 
       {/* Animated Main Content */}
       <motion.div initial="hidden" animate="visible" variants={contentVariants} style={{ width: '100%', overflowX:'hidden', overflowY:'hidden' }}>
+        <Flex position={'fixed'} right={'10px'} zIndex={20}>
+        <WithSubnavigation />
+        </Flex>
         <Box w="100%" minH="100vh" p={4} ml={{base:'1rem',sm:'1rem',md:'3rem',lg:'20rem', xl:'20rem', '2xl':'20rem'}} overflowX="hidden" overflowY="hidden" position="relative">
           <Image src={imageLink.blob2} alt="Profile" width="100%" position="absolute" opacity={0.15} zIndex={-3} />
           {children}

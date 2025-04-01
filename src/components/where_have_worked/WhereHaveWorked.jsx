@@ -60,7 +60,7 @@ const WhereHaveWorked = () => {
   const currExperience = data[indx];
 
   // Scrollable Companies List Component
-  const CompaniesList = ({ layout }) => (
+  const CompaniesList = ({ layout, listHeight = "25rem" }) => (
     <Flex
       flexDir={layout === "column" ? "column" : "row"}
       overflow={layout === "row" ? "scroll" : "unset"}
@@ -69,7 +69,7 @@ const WhereHaveWorked = () => {
       borderTop={layout === "row" ? "1px solid" : "none"}
       borderColor="gray.300"
       justifyContent="space-between"
-      height="25rem"
+      height={listHeight}
     >
       {data.map((company, i) => (
         <MotionBox
@@ -95,7 +95,7 @@ const WhereHaveWorked = () => {
       <Flex gap="2rem" justifyContent="center" height="30rem" flexDir={{ base: "column", lg: "row" }}>
         {/* Mobile: Horizontal List */}
         <Flex display={{ base: "flex", lg: "none" }}>
-          <CompaniesList layout="row" />
+          <CompaniesList layout="row" listHeight='fit-content' />
         </Flex>
 
         {/* Desktop: Vertical List */}

@@ -18,12 +18,18 @@ const sideBarOptions = [
     { name: 'Contact', icon: PiNotepadBold, href: '#contact' }
 ];
 
+
+//   LinkedIn': 'https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a/',
+//         'Github': 'https://github.com/ibraheem-adeyemo',
+//         'Twitter': 'https://twitter.com/ibraheemadeyemo',
+//         'Instagram': 'https://www.instagram.com/ibraheem_adeyemo/',
+
 const socialMediaHandles = [
-    { name: 'X', link: 'http://x.com', icon: RiTwitterXLine },
-    { name: 'Facebook', link: 'http://facebook.com', icon: RiFacebookCircleFill },
-    { name: 'Instagram', link: 'http://instagram.com', icon: RiInstagramLine },
-    { name: 'LinkedIn', link: 'http://linkedin.com', icon: RiLinkedinBoxFill },
-    { name: 'Github', link: 'http://github.com', icon: BsGithub }
+    { name: 'X', link: 'https://twitter.com/ibraheemadeyemo', icon: RiTwitterXLine },
+    // { name: 'Facebook', link: 'http://facebook.com', icon: RiFacebookCircleFill },
+    { name: 'Instagram', link: 'https://www.instagram.com/ibraheem_adeyemo', icon: RiInstagramLine },
+    { name: 'LinkedIn', link: 'https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a', icon: RiLinkedinBoxFill },
+    { name: 'Github', link: 'https://github.com/ibraheem-adeyemo', icon: BsGithub }
 ];
 
 const Sidebar = ({ firstName, lastName }) => {
@@ -62,7 +68,7 @@ const Sidebar = ({ firstName, lastName }) => {
         >
             <Flex justifyContent={'center'} flexDir={'column'}>
                 {/* Profile Image & Name */}
-                <Flex flexDir={'column'} alignItems="center">
+                <Flex flexDir={'column'} alignItems="center" mt={'2rem'}>
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }} 
                         animate={{ opacity: 1, scale: 1 }} 

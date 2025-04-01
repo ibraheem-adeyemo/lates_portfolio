@@ -27,7 +27,7 @@ const HomeComponent = () => {
         }
     }
   return (
-    <Flex flexDir={{md:'column',lg:'row'}} minH={'70vh'}  width={{base:'100%', md:'100%', lg:'80%'}} position='relative' id='Home' justifyContent={'space-between'}>
+    <Flex flexDir={{base: 'column-reverse',md:'column-reverse',lg:'row'}} minH={'70vh'}  width={{base:'100%', md:'100%', lg:'80%'}} position='relative' id='Home' justifyContent={'space-between'}>
         {/* <Image src={imageLink.blob2} alt='' width='300px' position='absolute' top={'-75px'} right={'-105px'} opacity={0.4} zIndex={1} bgColor={'red.100'} /> */}
         <Flex flexDir={'column'} width={'40rem'} mt='5rem' ml='4rem' zIndex={2} >
             <Flex flexDir={'column'} fontSize={'2rem'} fontWeight={'700'}>
@@ -48,7 +48,7 @@ const HomeComponent = () => {
                 </Button>
             </Flex>
         </Flex>
-        <Flex overflow={'hidden'} position={'relative'}>
+        <Flex overflow={'hidden'} position={'relative'} display={{base:'none', md:'none', lg:'flex'}}>
             <Image src={imageLink.il1_P}  width={'800px'} height={'700px'} left={'-30px'} alt="illustartion image 1" />
             <Box 
                 position="absolute" 
