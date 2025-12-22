@@ -53,7 +53,7 @@ export const TypingText = (props) => {
   }, [charIndex, currentTextIndex]);
 
   return (
-    <h1 style={{ fontSize: "24px", fontWeight: "bold", fontFamily: "monospace", height:'40px' }}>
+    <h1 style={{ fontSize: "24px", fontWeight: "bold", fontFamily: "font-mono", height:'40px' }}>
       {displayedText}
       <span style={{ opacity: charIndex % 2 ? 1 : 0 }}>|</span> {/* Blinking cursor */}
     </h1>

@@ -27,49 +27,102 @@ const HomeComponent = () => {
         }
     }
   return (
-    <Flex flexDir={{base: 'column-reverse',md:'column-reverse',lg:'row'}} minH={'70vh'}  width={{base:'100%', md:'100%', lg:'80%'}} position='relative' id='Home' justifyContent={'space-between'}>
-        {/* <Image src={imageLink.blob2} alt='' width='300px' position='absolute' top={'-75px'} right={'-105px'} opacity={0.4} zIndex={1} bgColor={'red.100'} /> */}
-        <Flex flexDir={'column'} width={'40rem'} mt='5rem' ml='4rem' zIndex={2} >
-            <Flex flexDir={'column'} fontSize={'2rem'} fontWeight={'700'}>
-                <Text>Hi, </Text>
-                <Flex >I'm Ibrahim Adeyemo</Flex> 
-                {/* <Text>a professional software engineer from Nigeria</Text> */}
-            </Flex>
-            {/* <Button width='20rem'>available for hire</Button> */}
-            <Flex mt='4rem'>
+    <Flex
+      flexDir={{base: 'column-reverse', md:'column-reverse', lg:'row'}}
+      minH={{base: 'auto', md: 'auto', lg: '70vh'}}
+      width={{base:'100%', md:'100%', lg:'80%'}}
+      position='relative'
+      id='Home'
+      justifyContent={'space-between'}
+      px={{base: '1.5rem', md: '2rem', lg: '0'}}
+      py={{base: '2rem', md: '3rem', lg: '0'}}
+    >
+        <Flex
+          flexDir={'column'}
+          width={{base: '100%', md: '100%', lg: '40rem'}}
+          mt={{base: '2rem', md: '3rem', lg: '5rem'}}
+          ml={{base: '0', md: '0', lg: '4rem'}}
+          zIndex={2}
+        >
+            <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-800 fade-in delay-1">
+                  Hi,
+                </h2>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-black fade-in delay-2">
+                  I'm Ibrahim Adeyemo
+                </h1>
+            </div>
+
+            <Flex mt={{base: '2rem', md: '3rem', lg: '4rem'}}>
                 <TypingText texts={texts} />
             </Flex>
-            <Flex mt='7rem'>
-                <Button width='12rem' height='4rem' fontSize={'1.2rem'} onClick={gotoContact} fontWeight={'600'} variant={'solid'} color={'white'} bgColor={'black'} _hover={{backgroundColor: 'brand.quinary'}}>
+
+            <Flex
+              mt={{base: '3rem', md: '4rem', lg: '7rem'}}
+              flexDir={{base: 'column', sm: 'row'}}
+              gap={{base: '1rem', sm: '0'}}
+            >
+                <Button
+                  width={{base: '100%', sm: '12rem'}}
+                  height='4rem'
+                  fontSize={'1.2rem'}
+                  onClick={gotoContact}
+                  fontWeight={'600'}
+                  variant={'solid'}
+                  color={'white'}
+                  bgColor={'black'}
+                  _hover={{backgroundColor: 'brand.quinary'}}
+                >
                     Hire Me
                 </Button>
-                <Button ml={'2rem'} cursor={'pointer'} height='4rem' border={'1px solid'} onClick={bookAMeeting}>
+                <Button
+                  ml={{base: '0', sm: '2rem'}}
+                  cursor={'pointer'}
+                  width={{base: '100%', sm: 'auto'}}
+                  height='4rem'
+                  border={'1px solid'}
+                  onClick={bookAMeeting}
+                >
                     Book a Meeting
                 </Button>
             </Flex>
         </Flex>
-        <Flex overflow={'hidden'} position={'relative'} display={{base:'none', md:'none', lg:'flex'}}>
-            <Image src={imageLink.il1_P}  width={'800px'} height={'700px'} left={'-30px'} alt="illustartion image 1" />
-            <Box 
-                position="absolute" 
-                top="620px" 
-                right="200px" 
-                width="350px"  // Set the width of visible portion
-                height="300px" // Set the height of visible portion
-                // overflow="hidden"
+
+        <Flex
+          overflow={'hidden'}
+          position={'relative'}
+          display={{base:'flex', md:'flex', lg:'flex'}}
+          justifyContent={'center'}
+          alignItems={'center'}
+          mt={{base: '2rem', md: '2rem', lg: '0'}}
+          mb={{base: '2rem', md: '2rem', lg: '0'}}
+        >
+            <Image
+              src={imageLink.il1_P}
+              width={{base: '100%', md: '600px', lg: '800px'}}
+              height={{base: 'auto', md: '500px', lg: '700px'}}
+              left={{base: '0', md: '0', lg: '-30px'}}
+              alt="illustration image 1"
+              objectFit={'contain'}
+            />
+            <Box
+                position="absolute"
+                top={{base: '420px', md: '420px', lg: '620px'}}
+                right={{base: '50px', md: '100px', lg: '200px'}}
+                width={{base: '200px', md: '300px', lg: '350px'}}
+                height={{base: '150px', md: '250px', lg: '300px'}}
+                display={{base: 'none', md: 'block'}}
             >
-                <Image 
-                    src={imageLink.blob2} 
-                    width="400px" // Ensure the image is larger so you can "clip" it
-                    height="200px"
-                    // objectFit="cover"
+                <Image
+                    src={imageLink.blob2}
+                    width={{base: '250px', md: '350px', lg: '400px'}}
+                    height={{base: '125px', md: '175px', lg: '200px'}}
                     position="absolute"
-                    top="2px"   // Shift the image upwards
-                    left="10px"  // Shift the image leftwards
+                    top="2px"
+                    left="10px"
                 />
             </Box>
         </Flex>
-        {/* <CustomScrollingText /> */}
     </Flex>
   )
 }
