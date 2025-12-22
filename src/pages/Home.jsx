@@ -7,6 +7,7 @@ import { setInitialData } from '../store/storeSlice'
 import About from '../components/about/About'
 import { motion, useInView } from 'framer-motion'
 import { Gallery, ProjectGallery } from '../components/gallery/Gallery'
+import DownloadCV from '../components/DownloadCV/DownloadCV.jsx'
 import CallToActionWithIllustration from '../components/Hero/Hero'
 import ContactFormWithSocialButtons from '../components/contact/Contact'
 
@@ -62,6 +63,11 @@ const Home = () => {
       <AnimatedSection>
        <Gallery />
       </AnimatedSection>
+
+      <AnimatedSection>
+       <DownloadCV />
+      </AnimatedSection>
+
       <AnimatedSection>
         <CallToActionWithIllustration />
       </AnimatedSection>
