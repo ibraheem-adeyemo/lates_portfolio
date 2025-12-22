@@ -66,8 +66,8 @@ const Bio = () => {
     const BioComponent = () => {
         return (
             <Box lineHeight={8} textAlign="justify" fontSize="18px">
-            <Text fontWeight="bold" mt='20px'>Bio</Text>
-            <Box mt='40px'>
+            {/* <Text fontWeight="bold" mt='20px'>Bio</Text> */}
+            <Box my='40px'>
             <Text>
               Hello! My name is <strong>Ibrahim Adeyemo</strong>, a results-driven
               <strong> Full-Stack Engineer </strong> specializing in building scalable,

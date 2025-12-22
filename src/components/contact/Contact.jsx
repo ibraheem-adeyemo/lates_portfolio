@@ -17,17 +17,12 @@ import {
   Tooltip,
   useClipboard,
   useColorModeValue,
-  Checkbox,
   VStack,
-  CheckboxGroup,
   Select,
-  useToast,
-  Spinner,
 } from '@chakra-ui/react'
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs'
 import { MdEmail, MdOutlineEmail } from 'react-icons/md'
-import React, { useState } from 'react'
-import { supabase } from '../../lib/functions'
+import React from 'react'
 
 const confetti = {
   light: {
@@ -47,108 +42,6 @@ const CONFETTI_DARK = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
 const services = ['I need a Frontend Engineer', 'I need a Backend Engineer', 'I need a Full-Stack Engineer','I need a softwarevengineer consultant', 'I need you to mentor me']
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard('example@example.com')
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [service, setService] = useState('');
-  const [files, setFiles] = useState(null);
-
-  const [loading, setLoading] = useState(false)
-
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwY3RidHZ0YXpzbXptZm1xcnhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0MDYyMzAsImV4cCI6MjA1Nzk4MjIzMH0.IEco-aJREkXXK6jwbw-JlL3cskrR22x1vAlsoXX6k7s'
-
-  const superbaseUrl = "https://epctbtvtazsmzmfmqrxp.supabase.co" 
-
-  const filePath = `uploads/${Date.now()}-${files?.name}`;
-
-  const toast = useToast()
-  const handleFileUpload = (file) => {
-      setFiles(file.target.files[0])
-  }
-
-  const uploadFileTotheBucket = async (file) => {
-    try {
-        const res = await fetch(`${superbaseUrl}/storage/v1/object/portfolio1/${filePath}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": file.type,
-              "Authorization": `Bearer ${supabaseKey}`,
-              "Access-Control-Allow-Origin": "*",
-            },
-            body: file,
-          });
-
-          const resData = await res.json();
-          return resData;
-    } catch (error) {
-        console.log(error);
-        toast({
-            title: 'An error occurred while uploading the file',
-            status: 'error',
-            duration: 5000,
-  
-        })
-        return 'error'
-    }
-  }
-
-  const sendDataToDB = async (fileReference=null) => {
-    console.log(fileReference)
-    fetch(`${superbaseUrl}/rest/v1/portfolio_data`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": supabaseKey,
-          "Authorization": `Bearer ${supabaseKey}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          email: email,
-          file: fileReference,
-          requested_service: service,
-          message,
-        }),
-      })
-      .then((data) => {
-        setLoading(false)
-        toast({
-          title: 'Your message has been sent',
-          status: 'success',
-          duration: 5000,
-        })
-      })
-      .catch((error) => {
-        setLoading(false)
-        toast({
-          title: 'An error occurred while sending your message',
-          status: 'error',
-          duration: 5000,
-          onCloseComplete: ()=> {
-            setLoading(false)
-          }
-        })
-      });
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    // Add your form submission logic here
-    setLoading(true)
-    if (files) {
-        const fileUploadResponse = await uploadFileTotheBucket(files);
-
-        if(fileUploadResponse !== 'error') {
-            await sendDataToDB(fileUploadResponse?.Key)
-        }
-    } else {
-        await sendDataToDB();
-    }
-    
-  }
 
   return (
     <Flex
@@ -252,7 +145,7 @@ export default function ContactFormWithSocialButtons() {
 
                 <VStack spacing={5}>
                     {/* https://formsubmit.co/aderemiibrahim11@gmail.com */}
-                {/* <form> */}
+                <form target="_blank" action="https://formsubmit.co/onlinelamu@gmail.com" method="POST" encType="multipart/form-data">
                   {/* <Flex gap={'1rem'} flexDir={{base:'column', md:'column',lg:'row'}} > */}
                   <FormControl isRequired>
                     <FormLabel>First Name</FormLabel>
@@ -261,7 +154,7 @@ export default function ContactFormWithSocialButtons() {
                       <InputLeftElement>
                         <BsPerson />
                       </InputLeftElement>
-                      <Input type="text" name="first_name" value={firstName} onChange={(e)=>setFirstName(e.target.value)} placeholder="First Name"/>
+                      <Input type="text" name="first_name" placeholder="First Name"/>
                     </InputGroup>
                   </FormControl>
                   <FormControl isRequired>
@@ -271,7 +164,7 @@ export default function ContactFormWithSocialButtons() {
                       <InputLeftElement>
                         <BsPerson />
                       </InputLeftElement>
-                      <Input type="text" name="last_name" placeholder="Last Name" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+                      <Input type="text" name="last_name" placeholder="Last Name" />
                     </InputGroup>
                   </FormControl>
                   {/* </Flex> */}
@@ -284,25 +177,24 @@ export default function ContactFormWithSocialButtons() {
                       <InputLeftElement>
                         <MdOutlineEmail />
                       </InputLeftElement>
-                      <Input type="email" name="email" placeholder="Your Email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                      <Input type="email" name="email" placeholder="Your Email" />
                     </InputGroup>
                   </FormControl>
-                  <FormControl isRequired>
+                  <FormControl>
                     <FormLabel>File</FormLabel>
 
                     <InputGroup>
                       <InputLeftElement>
                         <MdOutlineEmail />
                       </InputLeftElement>
-                      <Input type="file" name="upload file" onChange={handleFileUpload} accept='application/pdf' placeholder="Upload a file" />
+                      <Input type="file" name="attachment" accept='application/pdf' placeholder="Upload a file" />
                     </InputGroup>
                   </FormControl>
                   </Flex>
 
                   <FormControl>
                     <FormLabel>How can I be of help</FormLabel>
-                    <Select onChange={e =>setService(e.target.value)} defaultValue={service}>
-                            <option value={''} disabled hidden>Please select</option>
+                    <Select name="service" placeholder="Please select">
                             {services.map((service, indx) => (
                                 <option key={indx} value={service}>
                                     {service}
@@ -316,8 +208,6 @@ export default function ContactFormWithSocialButtons() {
 
                     <Textarea
                       name="message"
-                      value={message}
-                      onChange={e => setMessage(e.target.value)}
                       placeholder="Your Message"
                       rows={6}
                       resize="none"
@@ -329,18 +219,14 @@ export default function ContactFormWithSocialButtons() {
                     bg="blue.400"
                     type='submit'
                     color="white"
-                    as={Flex}
-                    justifyContent={'space-around'}
-                    onClick={handleSubmit}
                     mt='1rem'
                     _hover={{
                       bg: 'blue.500',
                     }}
                     width="full">
-                    <Text>Send Message</Text>
-                    {!!loading && <Spinner />}
+                    Send Message
                   </Button>
-                {/* </form> */}
+                </form>
                 </VStack>
               </Box>
             </Stack>
