@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Box,
   chakra,
@@ -9,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 const Logo = (props) => {
   return (
@@ -67,16 +65,16 @@ export default function Footer() {
         align={'center'}>
         {/* <Logo /> */}
         <Stack direction={'row'} spacing={6}>
-          <Box as="a" href={'#'}>
+          <Box as="a" href={'#Home'}>
             Home
           </Box>
-          <Box as="a" href={'#'}>
+          <Box as="a" href={'#About'}>
             About
           </Box>
-          <Box as="a" href={'#'}>
-            Blog
+          <Box as="a" href={'#Portfolio'}>
+            Portfolio
           </Box>
-          <Box as="a" href={'#'}>
+          <Box as="a" href={'#Contact'}>
             Contact
           </Box>
         </Stack>
@@ -96,13 +94,13 @@ export default function Footer() {
           align={{ base: 'center', md: 'center' }}>
           <Text>© {new Date().getFullYear()} Designed & Built by Ibraheem Adeyemo</Text>
           <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
+            <SocialButton label={'Twitter'} href={'https://twitter.com/ibraheemadeyemo'}>
               <FaTwitter />
             </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaYoutube />
+            <SocialButton label={'LinkedIn'} href={'https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a'}>
+              <FaLinkedin />
             </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
+            <SocialButton label={'Instagram'} href={'https://www.instagram.com/ibraheem_adeyemo'}>
               <FaInstagram />
             </SocialButton>
           </Stack>

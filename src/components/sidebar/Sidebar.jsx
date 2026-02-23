@@ -46,10 +46,10 @@ const Sidebar = ({ firstName, lastName }) => {
                 setActiveSection(section);
             }
         });
-
-        window.addEventListener("scroll", handleScroll)
       }
-    
+
+      window.addEventListener("scroll", handleScroll)
+
       return () => {
         window.removeEventListener("scroll", handleScroll)
       }
