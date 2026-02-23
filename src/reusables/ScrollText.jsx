@@ -50,7 +50,7 @@ export const TypingText = (props) => {
         setCurrentTextIndex((prev) => (prev + 1) % texts.length);
       }, 2000); // Time before changing text
     }
-  }, [charIndex, currentTextIndex]);
+  }, [charIndex, currentTextIndex, texts]);
 
   return (
     <h1 style={{ fontSize: "24px", fontWeight: "bold", fontFamily: "font-mono", height:'40px' }}>

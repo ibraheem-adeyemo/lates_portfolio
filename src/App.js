@@ -2,8 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Carousel from './components/gallery/Carousel';
-import IbrahimPortfolio from './pages/ibrahim-portfolio';
 
 function App() {
   return (

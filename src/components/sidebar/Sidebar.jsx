@@ -1,6 +1,6 @@
 import { Box, Flex, Link, Image, Text } from '@chakra-ui/react'
-import React, { useState, useEffect } from 'react'
-import { RiTwitterXLine, RiFacebookCircleFill, RiLinkedinBoxFill, RiInstagramLine } from "react-icons/ri";
+import { useState, useEffect } from 'react'
+import { RiTwitterXLine, RiLinkedinBoxFill, RiInstagramLine } from "react-icons/ri";
 import { BsGithub } from "react-icons/bs";
 import { Link as DomLink } from 'react-router-dom';
 import { imageLink } from '../../constants/imageLink';
@@ -33,17 +33,16 @@ const socialMediaHandles = [
 ];
 
 const Sidebar = ({ firstName, lastName }) => {
-    const sections = ['home', 'about', 'experience', 'gallery','contact']
-    const [activeSection, setActiveSection] = useState("home");
+    const [activeSection, setActiveSection] = useState("Home");
 
     useEffect(() => {
       const handleScroll = () => {
-        let scrollPosition = window.scrollY;
+        const scrollPosition = window.scrollY;
 
-        sideBarOptions.forEach((section) => {
-            const sectionElement = document.getElementById(section);
+        sideBarOptions.forEach((option) => {
+            const sectionElement = document.getElementById(option.name);
             if (sectionElement && sectionElement.offsetTop <= scrollPosition + 50) {
-                setActiveSection(section);
+                setActiveSection(option.name);
             }
         });
       }
@@ -107,7 +106,7 @@ const Sidebar = ({ firstName, lastName }) => {
                                 >
                                     <Link onClick={()=>scrollToSection(option.name)}
                                         _hover={{ backgroundColor: 'brand.quinary', color: 'white' }}
-                                        color='white' rel='noopener noreferrer' 
+                                        color={activeSection === option.name ? 'orange.300' : 'white'} rel='noopener noreferrer'
                                         px={'10px'} py={'12px'} borderRadius='10px'
                                     >
                                         <Flex align="center">

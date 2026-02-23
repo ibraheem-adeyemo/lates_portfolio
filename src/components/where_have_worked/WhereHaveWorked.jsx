@@ -1,5 +1,5 @@
 import { Flex, Text, Box, Heading } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { RxTriangleRight } from "react-icons/rx";
 import { useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';

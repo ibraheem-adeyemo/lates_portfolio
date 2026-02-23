@@ -9,7 +9,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Text,
   Stack,
   Textarea,
   Tooltip,
@@ -20,7 +19,6 @@ import {
 } from '@chakra-ui/react'
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs'
 import { MdEmail, MdOutlineEmail } from 'react-icons/md'
-import React from 'react'
 
 const confetti = {
   light: {
@@ -143,7 +141,7 @@ export default function ContactFormWithSocialButtons() {
 
                 <VStack spacing={5}>
                     {/* https://formsubmit.co/aderemiibrahim11@gmail.com */}
-                <form target="_blank" action="https://formsubmit.co/onlinelamu@gmail.com" method="POST" encType="multipart/form-data">
+                <form target="_blank" action="https://formsubmit.co/aderemiibrahim11@gmail.com" method="POST" encType="multipart/form-data">
                   {/* <Flex gap={'1rem'} flexDir={{base:'column', md:'column',lg:'row'}} > */}
                   <FormControl isRequired>
                     <FormLabel>First Name</FormLabel>

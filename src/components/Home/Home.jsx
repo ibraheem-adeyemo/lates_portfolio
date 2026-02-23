@@ -1,9 +1,6 @@
-import { Box, Button, Text, Flex, Image } from '@chakra-ui/react'
-import React from 'react'
-import {CustomScrollingText, TypingText} from '../../reusables/ScrollText'
+import { Box, Button, Flex, Image } from '@chakra-ui/react'
+import { TypingText } from '../../reusables/ScrollText'
 import { imageLink } from '../../constants/imageLink';
-import { useHref, useLocation, useNavigate } from 'react-router-dom';
-import { ReusableImage } from '../reusables/ReusableImage';
 
 const texts = [
   "I'm a SOFTWARE Engineer from Nigeria.",

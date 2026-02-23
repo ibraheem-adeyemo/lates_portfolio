@@ -1,6 +1,6 @@
 import { Box, Flex, Text, Image, IconButton, Button, Link, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useState } from "react";
 import { imageLink, projectGallery } from "../../constants/imageLink";
 import { SectionTitle } from "../where_have_worked/WhereHaveWorked";

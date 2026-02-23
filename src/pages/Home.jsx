@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { setInitialData } from '../store/storeSlice'
 import About from '../components/about/About'
 import { motion, useInView } from 'framer-motion'
-import { Gallery, ProjectGallery } from '../components/gallery/Gallery'
+import { Gallery } from '../components/gallery/Gallery'
 import DownloadCV from '../components/DownloadCV/DownloadCV.jsx'
 import CallToActionWithIllustration from '../components/Hero/Hero'
 import ContactFormWithSocialButtons from '../components/contact/Contact'
@@ -43,8 +43,8 @@ const Home = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(setInitialData())      
-  }, [])
+    dispatch(setInitialData())
+  }, [dispatch])
 
   return (
     <Layout>

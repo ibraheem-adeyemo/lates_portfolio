@@ -1,65 +1,6 @@
-import { VStack, Box, Text, Progress, Flex, List, ListItem, ListIcon, HStack, Icon, Heading, Image } from '@chakra-ui/react';
-import React, { useState } from 'react'
-import { RxTriangleRight } from "react-icons/rx";
+import { VStack, Box, Text, Progress, Flex, Image } from '@chakra-ui/react';
 import { imageLink } from '../../constants/imageLink';
-import { motion } from "framer-motion";
-import { FaBasketballBall, FaHiking, FaUtensils, FaPlane } from "react-icons/fa";
 import { SectionTitle } from '../where_have_worked/WhereHaveWorked';
-import { Document, Page, pdfjs } from "react-pdf";
-
-
-const hobbies = [
-  { name: "Playing Basketball", icon: FaBasketballBall },
-  { name: "Hiking", icon: FaHiking },
-  { name: "Cooking", icon: FaUtensils },
-  { name: "Traveling", icon: FaPlane },
-];
-
-// pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-//     "pdfjs-dist/build/pdf.worker.min.js",
-//     import.meta.url
-//   ).toString();
-
-const MotionBox = motion(Box);
-
-const Interests = () => {
-  return (
-    <Flex flexWrap="wrap" justify="center" gap={6} mt={6}>
-      {hobbies.map((hobby, index) => (
-        <MotionBox
-          key={index}
-          display="flex"
-          alignItems="center"
-          gap={3}
-          bg="gray.100"
-          p={4}
-          borderRadius="lg"
-          boxShadow="md"
-          cursor="pointer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Icon as={hobby.icon} boxSize={6} color="brand.primaryBg" />
-          <Text fontSize="lg" fontWeight="bold">
-            {hobby.name}
-          </Text>
-        </MotionBox>
-      ))}
-    </Flex>
-  );
-};
-
-const MyPDFViewer = () => {
-    return (
-        <Box height="600px">
-          <Document file="/IBRAHEEM_ADEYEMOfr_glo.pdf"
-          onLoadError={(error) => console.error("Failed to load PDF:", error)}>
-            <Page pageNumber={1} />
-          </Document>
-        </Box>
-      );
-  };
 
 const Bio = () => {
 
@@ -162,20 +103,6 @@ export const SkillBars = ({skills}) => {
   };
 
 const About = () => {
-    const [bioInterest, setBioInterest] = useState(['bio', 'skills', 'interest', 'hubbys']);
-    const hubbys = ['playing basketball', 'hiking', 'cooking', 'traveling'];
-    const frontEndSkills = ["React", "Next.js", "Redux Toolkit", "Chakra UI"];
-    const backEndSkills = ["Node.js", "Express.js", "AWS", "API integrations"];
-    const skills = [
-        { name: "JavaScript", level: 80 },
-        { name: "React", level: 75 },
-        { name: "Typescript", level: 70 },
-        { name: "Node.js", level: 78 },
-        { name: "Redux.js", level: 78 },
-        { name: "Next.js", level: 88 },
-
-      ];
-
     return (
         <Flex flexDir={'column'} id='About' width={'100%'}>
             <Flex justifyContent={'center'} width={'100%'}>

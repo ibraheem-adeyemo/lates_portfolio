@@ -1,5 +1,4 @@
-import { Box, Flex, Heading, Text, Image } from '@chakra-ui/react'
-import React from 'react'
+import { Flex, Heading, Text, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion';
 import { imageLink } from '../../constants/imageLink';
 import { SkillBars } from './About'
@@ -29,19 +28,7 @@ const skills = [
 
   ];
 
-const socialMediaHandle = [
-    // {
-    //     icons: '',
-    //     handle: 'ibraheem-adeyemo',
-    //     platform: 'GitHub',
-    //     link: 'https://github.com/ibraheem-adeyemo',
-    //     color: 'gray.700'
-    // }
-//     'LinkedIn': 'https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a/',
-//         'Github': 'https://github.com/ibraheem-adeyemo',
-//         'Twitter': 'https://twitter.com/ibraheemadeyemo',
-//         'Instagram': 'https://www.instagram.com/ibraheem_adeyemo/',
-]
+
 export const ProfileComponent = () => {
   return (
     <Flex>

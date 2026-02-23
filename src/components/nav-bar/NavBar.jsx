@@ -1,4 +1,4 @@
-import { Flex, IconButton, Text, Link } from "@chakra-ui/react";
+import { Flex, Text, Link } from "@chakra-ui/react";
 import { FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const ContactInfoBar = () => {
