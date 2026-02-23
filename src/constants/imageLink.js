@@ -11,10 +11,29 @@ export const imageLink = {
     paas: '/images/projects/paas/Login.jpg',
     supermart: '/images/projects/supermart/supermart2.png',
     switch1: '/images/projects/switch/Limits_1.jpg',
-    profiPoint: '/images/projects/profpoint.png'
+    profiPoint: '/images/projects/profpoint.png',
+    paytelstack: '/images/projects/paytelstack/dashboard-overview.png',
 }
 
 export const projectGallery = {
+    paytelstack: [
+        '/images/projects/paytelstack/landing-hero.png',
+        '/images/projects/paytelstack/landing-features.png',
+        '/images/projects/paytelstack/landing-getting-started.png',
+        '/images/projects/paytelstack/landing-pricing.png',
+        '/images/projects/paytelstack/landing-testimonials.png',
+        '/images/projects/paytelstack/landing-api-docs.png',
+        '/images/projects/paytelstack/auth-login.png',
+        '/images/projects/paytelstack/dashboard-overview.png',
+        '/images/projects/paytelstack/dashboard-analytics.png',
+        '/images/projects/paytelstack/dashboard-buy-airtime.png',
+        '/images/projects/paytelstack/dashboard-transactions.png',
+        '/images/projects/paytelstack/dashboard-wallet.png',
+        '/images/projects/paytelstack/dashboard-fund-wallet-modal.png',
+        '/images/projects/paytelstack/dashboard-transaction-details.png',
+        '/images/projects/paytelstack/settings-payment-gateways.png',
+        '/images/projects/paytelstack/settings-appearance.png',
+    ],
     Fraud_management: [
         '/images/projects/switch/Home.jpg',
         '/images/projects/switch/Dashboard.jpg',
