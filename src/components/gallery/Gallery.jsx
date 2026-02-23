@@ -121,7 +121,7 @@ export const Gallery = () => {
     };
 
     return (
-        <Flex width={{base:'100%', md:'100%', lg:'80%'}} flexDir={'column'} id='Portfolio'>
+        <Flex width="100%" flexDir={'column'} id='Portfolio'>
             <SectionTitle titleContent={'Gallery'} titleNo={'03'} />
             <Flex flexWrap={'wrap'} paddingInline={'40px'} gap={'2rem'} justifyContent={'center'}>
             {

@@ -1,6 +1,23 @@
 export const dummy = {
     experiences: [
         {
+            companyName: 'Paytelstack',
+            position: 'Founder & Lead Full-Stack Engineer',
+            startDate: '2024',
+            endDate: 'present',
+            deliverables: [
+                'Designed, built, and deployed a production-grade fintech SaaS platform from scratch, owning the entire technical stack including backend architecture, frontend development, database design, CI/CD pipeline, infrastructure, and automated testing.',
+                'Architected and implemented a scalable Node.js + TypeScript backend with RESTful API design, JWT authentication, role-based access control, rate limiting, and secure payment processing workflows.',
+                'Designed normalized PostgreSQL schema architecture with Prisma ORM, implementing transaction-safe operations, relational modeling, and migration strategies.',
+                'Integrated multiple live payment gateways (Paystack, Flutterwave) including webhook validation, signature verification, and reconciliation logic.',
+                'Implemented full CI/CD pipeline using Docker and GitHub Actions for automated build, testing, image publishing, and controlled staging/production deployments.',
+                'Containerized application using multi-stage Docker builds optimized for production performance and security — non-root containers, health checks, and resource limits.',
+                'Designed and deployed infrastructure with reverse proxy (NGINX), SSL termination, managed PostgreSQL database, environment-based configuration, and automated Prisma migrations.',
+                'Developed unit and integration tests to validate business logic and payment flows; established rollback strategy, health monitoring, and production logging.'
+            ],
+            technologies: ['Node.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Docker', 'NGINX', 'GitHub Actions', 'JWT', 'Paystack', 'Flutterwave', 'REST APIs', 'SaaS Architecture']
+        },
+        {
             companyName: 'Interswitch',
             position: 'Senior Frontend Architect',
             startDate: '06-02-2023', 

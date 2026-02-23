@@ -109,19 +109,37 @@ const Bio = () => {
         )            
     }   
     return (
-        <Flex justifyContent='space-between' width={'100%'} flexDir={{base:'column-reverse',sm:'column-reverse',md:'column-reverse', lg:'row'}} paddingInline={{base:'1rem', lg:'90px'}} minH={'700px'} pr={{base:'1rem', lg:'200px'}} gap={'2rem'} backgroundColor={'#021e020f'}>
-            <Box w={{base:'100%',sm:'100%',md:'100%', lg:'40%'}}>
-                <BioComponent />            
+        <Flex
+            justifyContent='space-between'
+            width={'100%'}
+            flexDir={{base:'column-reverse', lg:'row'}}
+            px={{base:'1.5rem', md:'2.5rem', lg:'4rem'}}
+            py={{base:'2.5rem', lg:'3.5rem'}}
+            gap={{base:'2.5rem', lg:'4rem'}}
+            backgroundColor={'#021e020f'}
+            alignItems='center'
+        >
+            <Box w={{base:'100%', lg:'55%'}}>
+                <BioComponent />
             </Box>
-            <Flex w={{base:'100%',sm:'100%',md:'100%', lg:'50%'}} paddingTop={'6rem'} pl={{base:'50px',md:'50px',lg:'150px'}}>
-                <Box width={'400px'} height={'400px'} position={'relative'} border={'solid 4px brown'}>
-                    <Image src={imageLink.profilePics2}  width={'400px'} height={'400px'} left={'-30px'} alt="illustartion image 1" position={'absolute'} top='30px' />
-                {/* <Image src={imageLink.il1_P} maxWidth={'80%'} alt="illustartion image 1" /> */}
-                {/* <Image src={imageLink.blob2} maxWidth={'80%'} alt="blob shape image 1" position='absolute' top='630px' right={'130px'} /> */}
+            <Flex
+                w={{base:'100%', lg:'45%'}}
+                justifyContent={{base:'center', lg:'flex-end'}}
+                alignItems='center'
+                flexShrink={0}
+            >
+                <Box
+                    w={{base:'260px', sm:'300px', md:'340px', lg:'340px'}}
+                    h={{base:'260px', sm:'300px', md:'340px', lg:'340px'}}
+                    position={'relative'}
+                    border={'solid 4px brown'}
+                    flexShrink={0}
+                >
+                    <Image src={imageLink.profilePics2} w={'100%'} h={'100%'} objectFit='cover' left={'-15px'} alt="profile image" position={'absolute'} top='15px' />
                 </Box>
             </Flex>
         </Flex>
-      )    
+      )
 }
 
 export const SkillBars = ({skills}) => {
@@ -159,8 +177,8 @@ const About = () => {
       ];
 
     return (
-        <Flex flexDir={'column'} id='About' width={{base:'100%', md:'100%', lg:'80%'}}>
-            <Flex justifyContent={'center'} width={'80%'}>
+        <Flex flexDir={'column'} id='About' width={'100%'}>
+            <Flex justifyContent={'center'} width={'100%'}>
                 <SectionTitle titleContent={'About Me'} titleNo={'01'} />
             </Flex>
             <Bio />

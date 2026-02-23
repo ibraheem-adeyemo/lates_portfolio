@@ -30,7 +30,7 @@ const HomeComponent = () => {
     <Flex
       flexDir={{base: 'column-reverse', md:'column-reverse', lg:'row'}}
       minH={{base: 'auto', md: 'auto', lg: '70vh'}}
-      width={{base:'100%', md:'100%', lg:'80%'}}
+      width="100%"
       position='relative'
       id='Home'
       justifyContent={'space-between'}

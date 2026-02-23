@@ -33,13 +33,13 @@ const Layout = ({ children }) => {
         <Flex position={'fixed'} right={'10px'} zIndex={20}>
         <WithSubnavigation />
         </Flex>
-        <Box w="100%" minH="100vh" p={4} ml={{base:'1rem',sm:'1rem',md:'3rem',lg:'20rem', xl:'20rem', '2xl':'20rem'}} overflowX="hidden" overflowY="hidden" position="relative">
+        <Box minH="100vh" ml={{base:'0',sm:'0',md:'0',lg:'20rem', xl:'20rem', '2xl':'20rem'}} overflowX="hidden" overflowY="hidden" position="relative">
           <Image src={imageLink.blob2} alt="Profile" width="100%" position="absolute" opacity={0.15} zIndex={-3} />
           {children}
         </Box>
-        <motion.div>
+        <Box ml={{base:'0',sm:'0',md:'0',lg:'20rem', xl:'20rem', '2xl':'20rem'}}>
             <Footer />
-        </motion.div>
+        </Box>
       </motion.div>    
     </Flex>
   )

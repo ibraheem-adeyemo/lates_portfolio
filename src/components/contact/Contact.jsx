@@ -49,7 +49,7 @@ export default function ContactFormWithSocialButtons() {
       bg={useColorModeValue('gray.100', 'gray.900')}
       align="center"
       justify="center"
-      width={{base:'100%', md:'100%', lg:'80%'}}
+      width="100%"
       css={{
         backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
         backgroundAttachment: 'fixed',
