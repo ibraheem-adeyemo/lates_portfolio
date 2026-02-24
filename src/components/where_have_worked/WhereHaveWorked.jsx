@@ -92,7 +92,13 @@ const WhereHaveWorked = () => {
   return (
     <Flex flexDir="column" width="100%">
       <SectionTitle titleContent="Where have worked" titleNo="02" />
-      <Flex gap="2rem" justifyContent="center" height="30rem" flexDir={{ base: "column", lg: "row" }}>
+      <Flex
+        gap="2rem"
+        justifyContent="center"
+        height={{ base: "auto", lg: "30rem" }}
+        flexDir={{ base: "column", lg: "row" }}
+        px={{ base: "1.5rem", md: "2.5rem", lg: "4rem" }}
+      >
         {/* Mobile: Horizontal List */}
         <Flex display={{ base: "flex", lg: "none" }}>
           <CompaniesList layout="row" listHeight='fit-content' />
@@ -104,7 +110,7 @@ const WhereHaveWorked = () => {
         </Flex>
 
         {/* Work Experience Section */}
-        <Flex width="35rem" height="25rem" overflowY="auto">
+        <Flex flex={1} height={{ base: "auto", lg: "25rem" }} overflowY="auto">
           <AnimatePresence>{currExperience && <WorkExperience experience={currExperience} key={indx} />}</AnimatePresence>
         </Flex>
       </Flex>
