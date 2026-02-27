@@ -13,7 +13,7 @@ const projects = [
     title: 'Paytelstack',
     image: imageLink.paytelstack,
     description: 'A production-grade fintech SaaS platform for automated airtime & data reselling — built with Node.js, TypeScript, PostgreSQL, Docker, and live payment gateway integrations.',
-    link: '#',
+    link: 'https://staging.paytelstack.com/',
   },
   {
     name:'Fraud_management',
