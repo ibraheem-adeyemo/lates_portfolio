@@ -2,7 +2,7 @@ export const dummy = {
     experiences: [
         {
             companyName: 'Paytelstack',
-            position: 'Founder & Lead Full-Stack Engineer',
+            position: 'Lead Full-Stack Engineer', //Founder
             startDate: '2024',
             endDate: 'present',
             deliverables: [
