@@ -836,11 +836,11 @@ export default function CallToActionWithIllustration() {
           lineHeight={'110%'}>
           From Concept to Code –{' '} <br />
           <Text as={'span'} color={'orange.400'}>
-          Let's Bring Your Project to Life.
+          Let&apos;s Bring Your Project to Life.
           </Text>
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>
-          I specialize in building intuitive, high-performance applications that bring ideas to life. Whether it's a sleek front-end interface or a powerful back-end system, I craft scalable solutions tailored to your needs. Let’s create something amazing together!
+          I specialize in building intuitive, high-performance applications that bring ideas to life. Whether it&apos;s a sleek front-end interface or a powerful back-end system, I craft scalable solutions tailored to your needs. Let’s create something amazing together!
         </Text>
         <Stack spacing={6} direction={'row'}>
           <Button

@@ -1,32 +1,6 @@
-import { useRef, useEffect, useState } from "react";
+'use client'
 
-export const CustomScrollingText = () => {
-  const textRef = useRef(null);
-
-  useEffect(() => {
-    let scrollAmount = 0;
-    const scroll = () => {
-      if (textRef.current) {
-        scrollAmount -= 2; // Speed
-        if (scrollAmount < -textRef.current.clientWidth) {
-          scrollAmount = window.innerWidth;
-        }
-        textRef.current.style.transform = `translateX(${scrollAmount}px)`;
-      }
-      requestAnimationFrame(scroll);
-    };
-    scroll();
-  }, []);
-
-  return (
-    <div style={{ overflow: "hidden", width: "100%", whiteSpace: "nowrap" }}>
-      <p ref={textRef} style={{ display: "inline-block", position: "relative" }}>
-        This is a scrolling text effect in React!
-      </p>
-    </div>
-  );
-};
-
+import { useEffect, useState } from "react";
 
 export const TypingText = (props) => {
     const {texts} = props;

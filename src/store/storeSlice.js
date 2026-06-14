@@ -6,15 +6,9 @@ export const dataSlice = createSlice({
     initialState: {
         loading: false,
         error: null,
-        data: []
+        data: dummy.experiences
     },
-    reducers: {
-        setInitialData(state) {
-            state.data = dummy.experiences
-        }
-    },
+    reducers: {},
 })
-
-export const { setInitialData } = dataSlice.actions;
 
 export default dataSlice.reducer;

@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# Ibrahim Adeyemo — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal portfolio website for Ibrahim Adeyemo, a Senior Full-Stack Engineer based in Lagos, Nigeria. Built with React 19, Chakra UI, and Framer Motion.
 
-## Available Scripts
+**Live:** [ibrahimadeyemo.com](https://ibrahimadeyemo.com)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The site is a single-page application with two routes:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Route | Description |
+|---|---|
+| `/` | Main portfolio — all sections stacked vertically with scroll-triggered animations |
+| `/profile` | Detailed profile page — contact info and skill progress bars |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Sections
 
-### `npm run build`
+The home page renders each section inside an `AnimatedSection` wrapper that uses Framer Motion's `useInView` to fade and slide content in as it enters the viewport.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Hero
+Introduces Ibrahim by name. Includes a `TypingText` component that cycles through role descriptions character-by-character with a blinking cursor.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Two CTAs:
+- **Hire Me** — smooth-scrolls to the Contact section
+- **Book a Meeting** — opens Calendly in a new tab
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. About Me
+Bio section with a profile photo and a written overview of technical expertise across frontend, backend, state management, DevOps, and open source.
 
-### `npm run eject`
+### 3. Where Have Worked
+Interactive work experience timeline powered by Redux. A list of companies on the left (horizontal scroll on mobile, vertical on desktop) — clicking a company animates in the full experience detail on the right using Framer Motion's `AnimatePresence`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Companies covered: Paytelstack, Interswitch (×2), Supermart Express, Sadjawebsolutions, Andela StackUp Program.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Portfolio Gallery
+Project showcase with alternating left/right card layout. Each project has:
+- Cover image with a hover overlay revealing **Live Demo** and **View Gallery** buttons
+- A modal carousel that opens full-size screenshots with prev/next navigation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Projects: Paytelstack, Fraud Management (Interswitch), Supermart Express, PaaS (Interswitch), Payment Control UI.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 5. Download CV
+Full-width CTA banner with a gradient background. Clicking **Download My CV** downloads `/IBRAHEEM-ADEYEMO-dp.pdf` directly from the public folder.
 
-## Learn More
+### 6. CTA with Illustration
+Secondary call-to-action with an inline SVG illustration rendered as a Chakra UI `Icon`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 7. Contact
+Contact form that posts to [formsubmit.co](https://formsubmit.co) — no backend needed. Includes social media links (GitHub, LinkedIn, Twitter) and a clipboard copy button for the email address.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Layout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+┌─────────────────────────────────────────────────────┐
+│  Fixed Sidebar (lg+)      │  Main Content           │
+│  ──────────────────────   │                         │
+│  Profile avatar           │  [Contact Info Bar]     │
+│  Nav: Home / About /      │  top-right, fixed       │
+│       Resume / Portfolio  │  (hamburger on mobile)  │
+│       / Contact           │                         │
+│  Social: LinkedIn /       │  Sections 1–7           │
+│          Twitter /        │  (AnimatedSection)      │
+│          Instagram        │                         │
+│                           │  Footer                 │
+└─────────────────────────────────────────────────────┘
+```
 
-### Analyzing the Bundle Size
+- **Sidebar** — hidden on mobile/tablet (`base`→`md`), visible from `lg`. Highlights the active section in orange as the user scrolls, tracked via a `scroll` event listener.
+- **Contact Info Bar** — fixed top-right. On desktop it is always visible with phone, email, and WhatsApp links. On mobile it collapses behind a `☰` toggle button and expands with a Chakra `Collapse` animation.
+- **Footer** — offset by the sidebar width on desktop, full-width on mobile.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| | |
+|---|---|
+| **Framework** | React 19 (Create React App) |
+| **UI Library** | Chakra UI v2 |
+| **Animations** | Framer Motion v12 |
+| **State** | Redux Toolkit v2 + React Redux |
+| **Routing** | React Router DOM v7 |
+| **Utility CSS** | Tailwind CSS v3 |
+| **Icons** | react-icons v5 |
+| **Form** | formsubmit.co (no backend) |
+| **Meeting booking** | Calendly (external link) |
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Project Structure
 
-### Deployment
+```
+src/
+├── components/
+│   ├── about/
+│   │   ├── About.jsx           # Bio section
+│   │   └── Profile.jsx         # /profile page content
+│   ├── contact/
+│   │   └── Contact.jsx         # Contact form + social links
+│   ├── DownloadCV/
+│   │   └── DownloadCV.jsx      # CV download CTA banner
+│   ├── footer/
+│   │   └── Footer.jsx
+│   ├── gallery/
+│   │   ├── Gallery.jsx         # Project cards + screenshot modal
+│   │   └── Carousel.jsx
+│   ├── Hero/
+│   │   └── Hero.jsx            # CTA with SVG illustration
+│   ├── Home/
+│   │   └── Home.jsx            # Landing hero + TypingText
+│   ├── nav-bar/
+│   │   └── NavBar.jsx          # Contact info bar (mobile toggle)
+│   ├── sidebar/
+│   │   └── Sidebar.jsx         # Fixed sidebar nav
+│   └── where_have_worked/
+│       └── WhereHaveWorked.jsx # Work experience timeline
+├── constants/
+│   └── imageLink.js            # Image paths + project gallery arrays
+├── layout/
+│   └── Layout.jsx              # Sidebar + content shell
+├── pages/
+│   ├── Home.jsx                # Route "/" with AnimatedSection wrappers
+│   └── Profile.jsx             # Route "/profile"
+├── reusables/
+│   └── ScrollText.jsx          # TypingText component
+├── store/
+│   ├── dummy.js                # Work experience + about data
+│   ├── store.js
+│   └── storeSlice.js
+└── theme/
+    ├── color.js
+    └── index.js                # Chakra UI theme overrides (brand colours)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Getting Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Prerequisites
+- Node.js 18+
+- npm
+
+### Install & run
+
+```bash
+git clone https://github.com/ibraheem-adeyemo/lates_portfolio.git
+cd lates_portfolio
+npm install
+npm start
+```
+
+Opens at `http://localhost:3000`.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+Output goes to `build/` — a static site ready to deploy anywhere (Netlify, Vercel, GitHub Pages, etc.).
+
+---
+
+## Customisation
+
+### Contact form email
+In [src/components/contact/Contact.jsx](src/components/contact/Contact.jsx), change the `action` URL:
+```html
+<form action="https://formsubmit.co/your@email.com" method="POST">
+```
+
+### CV file
+Replace `public/IBRAHEEM-ADEYEMO-dp.pdf` with your own file and update the filename in [DownloadCV.jsx](src/components/DownloadCV/DownloadCV.jsx).
+
+### Work experience
+Edit the `experiences` array in [src/store/dummy.js](src/store/dummy.js). Each entry takes:
+```js
+{
+  companyName, position, startDate, endDate,
+  deliverables: [],   // bullet points
+  technologies: []    // tag list
+}
+```
+
+### Portfolio projects
+Add entries to the `projects` array in [Gallery.jsx](src/components/gallery/Gallery.jsx) and the matching screenshot array in `projectGallery` in [imageLink.js](src/constants/imageLink.js).
+
+---
+
+## SEO
+
+`public/index.html` includes:
+- `<title>` and `<meta name="description">`
+- Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+- Twitter Card tags
+- JSON-LD `Person` schema (name, jobTitle, email, address, sameAs, knowsAbout)
+
+---
+
+## Author
+
+**Ibrahim Adeyemo** — Senior Full-Stack Engineer
+
+- Email: [aderemiibrahim11@gmail.com](mailto:aderemiibrahim11@gmail.com)
+- GitHub: [@ibraheem-adeyemo](https://github.com/ibraheem-adeyemo)
+- LinkedIn: [ibraheem-adeyemo](https://www.linkedin.com/in/ibraheem-adeyemo-baa05116a/)
+- Portfolio: [ibrahimadeyemo.com](https://ibrahimadeyemo.com)

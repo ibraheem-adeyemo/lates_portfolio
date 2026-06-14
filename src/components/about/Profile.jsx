@@ -52,7 +52,7 @@ export const ProfileComponent = () => {
                     {
                         contacts.map((cont) => {
                             return (
-                            <Flex>
+                            <Flex key={cont.fieldName}>
                                 <Text width='8rem'>{cont.fieldName}</Text>
                                 <Text fontWeight={700}>{cont.fieldVal}</Text>
                             </Flex>)

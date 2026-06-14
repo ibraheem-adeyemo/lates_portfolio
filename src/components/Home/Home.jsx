@@ -46,7 +46,7 @@ const HomeComponent = () => {
                   Hi,
                 </h2>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-black fade-in delay-2">
-                  I'm Ibrahim Adeyemo
+                  I&apos;m Ibrahim Adeyemo
                 </h1>
             </div>
 
@@ -112,6 +112,7 @@ const HomeComponent = () => {
             >
                 <Image
                     src={imageLink.blob2}
+                    alt=""
                     width={{base: '250px', md: '350px', lg: '400px'}}
                     height={{base: '125px', md: '175px', lg: '200px'}}
                     position="absolute"

@@ -1,8 +1,9 @@
+'use client'
+
 import { Box, Flex, Link, Image, Text } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { RiTwitterXLine, RiLinkedinBoxFill, RiInstagramLine } from "react-icons/ri";
 import { BsGithub } from "react-icons/bs";
-import { Link as DomLink } from 'react-router-dom';
 import { imageLink } from '../../constants/imageLink';
 import { RxDashboard } from "react-icons/rx";
 import { PiUsers, PiFoldersBold, PiNotepadBold } from "react-icons/pi";
@@ -80,12 +81,12 @@ const Sidebar = ({ firstName, lastName }) => {
                     {/* Social Media Icons */}
                     <Flex mt='1.5rem' justifyContent={'center'} gap="10px">
                         {socialMediaHandles.map((handle, index) => (
-                            <motion.div 
-                                whileHover={{ scale: 1.2 }} 
-                                key={index} 
+                            <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                key={index}
                                 transition={{ type: 'spring', stiffness: 300 }}
                             >
-                                <Link as={DomLink} to={handle.link} color='gray.400' rel='noopener noreferrer'>
+                                <Link href={handle.link} color='gray.400' isExternal>
                                     <handle.icon size='24px' />
                                 </Link>
                             </motion.div>

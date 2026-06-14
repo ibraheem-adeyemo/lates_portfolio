@@ -1,5 +1,6 @@
+'use client'
+
 import { Box, Flex, Image } from '@chakra-ui/react'
-import React from 'react'
 import Sidebar from '../components/sidebar/Sidebar'
 import { imageLink } from '../constants/imageLink'
 import { motion } from 'framer-motion'
