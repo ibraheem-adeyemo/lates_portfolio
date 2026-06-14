@@ -4,7 +4,7 @@ import React from 'react';
 const DownloadCV = () => {
     const handleDownloadCV = () => {
         // Replace with your actual CV file path
-        const cvUrl = '/IBRAHEEM-ADEYEMO-dp.pdf';
+        const cvUrl = '/Ibraheem_Adeyemo_CV.pdf';
         const link = document.createElement('a');
         link.href = cvUrl;
         link.download = 'Ibrahim_Adeyemo_CV.pdf';
